@@ -4,168 +4,186 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pratik Pal | Portfolio</title>
-  <meta name="description" content="Pratik Pal — IT Operations, Technical Support, ITSM / Service Delivery. Portfolio, experience, projects, and CV downloads." />
+  <meta name="description" content="Pratik Pal — IT Operations, Technical Support, ITSM & Program Coordination. Experience, skills, projects, education, and CV downloads." />
+
   <style>
     :root{
-      --bg:#0b1020;
-      --surface:#0f1630;
-      --card:#111a3a;
-      --card2:#0f1735;
-      --text:#eef2ff;
-      --muted:#b7c0ff;
-      --line:rgba(255,255,255,.12);
-      --accent:#7c3aed;
-      --accent2:#22c55e;
-      --accent3:#06b6d4;
-      --warn:#f59e0b;
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --radius:16px;
-      --radius2:22px;
-      --max:1050px;
+      --bg0:#070a14;
+      --bg1:#0b1227;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(0,0,0,.18);
+      --line: rgba(255,255,255,.14);
+      --text:#f2f5ff;
+      --muted: rgba(242,245,255,.78);
+      --muted2: rgba(242,245,255,.65);
+
+      --accent1:#7c3aed; /* purple */
+      --accent2:#06b6d4; /* cyan */
+      --accent3:#22c55e; /* green */
+      --accent4:#f59e0b; /* amber */
+
+      --shadow: 0 14px 34px rgba(0,0,0,.35);
+      --radius: 16px;
+      --radius2: 22px;
+
+      --max: 1100px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: var(--sans);
       color: var(--text);
       background:
-        radial-gradient(900px 400px at 20% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 400px at 80% 0%, rgba(6,182,212,.25), transparent 60%),
-        radial-gradient(900px 500px at 60% 90%, rgba(34,197,94,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg), #070a14 70%);
+        radial-gradient(900px 450px at 15% 10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 450px at 80% 0%, rgba(6,182,212,.25), transparent 60%),
+        radial-gradient(900px 520px at 70% 90%, rgba(34,197,94,.20), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg0) 70%);
       min-height:100vh;
     }
-
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 70px;}
+
+    /* Top nav */
     .topbar{
-      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      padding:12px 14px; border:1px solid var(--line); border-radius:999px;
-      background: rgba(255,255,255,.06); backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.18);
+      position: sticky;
+      top: 10px;
+      z-index: 10;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
     }
-    .badge{
-      display:inline-flex; gap:10px; align-items:center;
-      font-weight:700; letter-spacing:.2px;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
     }
     .dot{
       width:10px; height:10px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
       box-shadow: 0 0 0 6px rgba(124,58,237,.18);
     }
-    .small{
-      color: rgba(238,242,255,.8);
-      font-size: 13px;
-    }
-    .links{
+    .nav{
       display:flex; gap:8px; flex-wrap:wrap;
+      align-items:center;
     }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px;
+    .nav a{
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:999px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.06);
-      text-decoration:none;
       font-size: 13px;
+      font-weight: 700;
       transition: transform .12s ease, background .12s ease;
     }
-    .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,.1);}
-    .icon{
-      width:10px; height:10px; border-radius:3px;
-      background: rgba(255,255,255,.25);
+    .nav a:hover{transform: translateY(-1px); background: rgba(255,255,255,.1);}
+    .nav .cta{
+      background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(6,182,212,.65));
+      border-color: rgba(255,255,255,.18);
     }
 
-    header.hero{
-      margin-top:18px;
+    /* Hero */
+    .hero{
+      margin-top:14px;
       border-radius: var(--radius2);
-      overflow:hidden;
       border:1px solid var(--line);
-      box-shadow: var(--shadow);
-      position:relative;
       background:
-        linear-gradient(120deg, rgba(124,58,237,.55), rgba(6,182,212,.35), rgba(34,197,94,.25)),
-        radial-gradient(900px 600px at 10% 20%, rgba(255,255,255,.12), transparent 60%),
+        linear-gradient(120deg, rgba(124,58,237,.55), rgba(6,182,212,.30), rgba(34,197,94,.22)),
         rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
     .heroInner{
-      padding:24px 22px 18px;
       display:grid;
-      grid-template-columns: 1.4fr .6fr;
-      gap:16px;
+      grid-template-columns: 1.35fr .65fr;
+      gap:14px;
+      padding:20px 20px 14px;
     }
-    @media(max-width:900px){
-      .heroInner{grid-template-columns:1fr}
-    }
+    @media(max-width:900px){ .heroInner{grid-template-columns:1fr;} }
 
-    h1{margin:0; font-size:32px; line-height:1.15;}
-    .role{
-      margin:8px 0 0;
-      color: rgba(238,242,255,.9);
-      font-size: 15px;
+    h1{margin:0; font-size: 30px; line-height:1.15;}
+    .subtitle{margin:8px 0 0; color: rgba(255,255,255,.92); font-size: 14px;}
+    .quick{
+      margin-top:12px;
+      display:flex; flex-wrap:wrap; gap:8px;
     }
-    .role strong{color: #ffffff;}
-    .metaBox{
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.12);
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.14);
+      color: rgba(255,255,255,.92);
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .chip.p{border-color: rgba(124,58,237,.35);}
+    .chip.c{border-color: rgba(6,182,212,.35);}
+    .chip.g{border-color: rgba(34,197,94,.35);}
+    .chip.y{border-color: rgba(245,158,11,.45);}
+
+    .meta{
       border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.14);
       padding:14px;
     }
     .metaRow{display:flex; justify-content:space-between; gap:12px; margin:8px 0;}
-    .metaKey{color: rgba(238,242,255,.75); font-size:12px;}
-    .metaVal{font-weight:650; font-size:13px; text-align:right;}
-    .ctaRow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      padding:0 22px 22px;
+    .k{color: rgba(255,255,255,.72); font-size:12px;}
+    .v{font-weight:800; font-size: 13px; text-align:right;}
+    .mono{font-family: var(--mono);}
+
+    .btnRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      padding: 0 20px 18px;
     }
     .btn{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 12px;
       border-radius: 12px;
       border:1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.12);
+      background: rgba(0,0,0,.14);
       color: var(--text);
       text-decoration:none;
-      font-weight:650;
+      font-weight:800;
       font-size: 13px;
       transition: transform .12s ease, background .12s ease;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(0,0,0,.18);}
-    .btn.primary{
-      border: 1px solid rgba(255,255,255,.18);
-      background: linear-gradient(135deg, rgba(124,58,237,.8), rgba(6,182,212,.65));
-    }
-    .btn.green{
-      background: linear-gradient(135deg, rgba(34,197,94,.75), rgba(6,182,212,.55));
-    }
-    .btn .bicon{
-      width:10px; height:10px; border-radius:3px;
-      background: rgba(255,255,255,.85);
-      box-shadow: 0 0 0 4px rgba(255,255,255,.12);
-    }
+    .btn:hover{transform: translateY(-1px); background: rgba(0,0,0,.20);}
+    .btn.primary{background: linear-gradient(135deg, rgba(124,58,237,.82), rgba(6,182,212,.62));}
+    .btn.green{background: linear-gradient(135deg, rgba(34,197,94,.78), rgba(6,182,212,.50));}
+    .btn .sq{width:10px; height:10px; border-radius:3px; background: rgba(255,255,255,.85); box-shadow: 0 0 0 4px rgba(255,255,255,.14);}
 
+    /* Sections */
+    .section{margin-top:14px;}
     .grid{
-      margin-top:18px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
     }
     @media(max-width:900px){ .grid{grid-template-columns:1fr;} }
-
     .card{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
+      background: var(--card);
       border-radius: var(--radius);
-      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
       padding:16px;
     }
     .card h2{
       margin:0 0 10px;
       font-size: 16px;
-      letter-spacing:.2px;
       display:flex; align-items:center; justify-content:space-between; gap:10px;
+      letter-spacing:.2px;
     }
     .tag{
       font-size:12px;
@@ -173,63 +191,80 @@
       border-radius:999px;
       border:1px solid rgba(255,255,255,.16);
       background: rgba(0,0,0,.14);
-      color: rgba(238,242,255,.9);
+      color: rgba(255,255,255,.9);
       white-space:nowrap;
     }
-    .muted{color: rgba(238,242,255,.78); font-size: 14px;}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
-    .chip{
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
-      font-size: 12px;
-      color: rgba(238,242,255,.92);
-    }
-    .chip.acc1{border-color: rgba(124,58,237,.35);}
-    .chip.acc2{border-color: rgba(34,197,94,.35);}
-    .chip.acc3{border-color: rgba(6,182,212,.35);}
-    .chip.warn{border-color: rgba(245,158,11,.45);}
+    .muted{color: var(--muted); font-size: 14px; margin:0;}
+    .muted2{color: var(--muted2); font-size: 13px;}
+    ul{margin:10px 0 0 18px; color: rgba(255,255,255,.86); font-size: 13px;}
+    li{margin:6px 0;}
 
-    .timeline{
-      margin-top:10px;
-      border-left: 2px solid rgba(255,255,255,.14);
-      padding-left: 14px;
-    }
-    .titem{margin: 12px 0;}
-    .titem .top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
-    .trole{font-weight:750;}
-    .torg{color: rgba(238,242,255,.82); font-size: 13px; margin-top:2px;}
-    .tdate{font-family: var(--mono); font-size: 12px; color: rgba(238,242,255,.72); white-space:nowrap;}
-    .tbullets{margin:6px 0 0 18px; color: rgba(238,242,255,.82); font-size: 13px;}
-    .tbullets li{margin:6px 0;}
-
-    .twoCV{
-      display:grid; grid-template-columns:1fr 1fr; gap:12px;
-      margin-top: 10px;
-    }
-    @media(max-width:700px){ .twoCV{grid-template-columns:1fr;} }
+    /* Two CV boxes */
+    .twoCV{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;}
+    @media(max-width:900px){ .twoCV{grid-template-columns:1fr;} }
     .cvbox{
-      border:1px solid rgba(255,255,255,.14);
       border-radius: 14px;
-      padding: 12px;
-      background: rgba(0,0,0,.12);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.14);
+      padding:12px;
     }
     .cvbox h3{margin:0 0 6px; font-size: 14px;}
-    .cvbox p{margin:0; color: rgba(238,242,255,.78); font-size: 13px;}
-    .cvbox .btnrow{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;}
-    .miniBtn{
+    .cvbox p{margin:0; color: rgba(255,255,255,.78); font-size: 13px;}
+    .cvbtns{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .mini{
       display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:12px;
+      padding:8px 10px;
+      border-radius: 12px;
       border:1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.06);
-      text-decoration:none; font-weight:650; font-size: 12px;
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 12px;
     }
-    .miniBtn:hover{background: rgba(255,255,255,.1);}
+    .mini:hover{background: rgba(255,255,255,.10);}
+
+    /* Accordion buttons (headlines as buttons) */
+    details{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.14);
+      border-radius: 14px;
+      padding:10px 12px;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:900;
+      font-size: 13px;
+    }
+    summary::-webkit-details-marker{display:none;}
+    .arrow{
+      width:10px; height:10px;
+      border-right:2px solid rgba(255,255,255,.8);
+      border-bottom:2px solid rgba(255,255,255,.8);
+      transform: rotate(-45deg);
+      transition: transform .15s ease;
+    }
+    details[open] .arrow{transform: rotate(45deg);}
+    .inside{margin-top:10px; color: rgba(255,255,255,.86); font-size: 13px;}
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
+    }
 
     footer{
       margin-top:20px;
-      color: rgba(238,242,255,.68);
+      color: rgba(255,255,255,.70);
       font-size: 12px;
       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
       padding: 10px 2px;
@@ -239,7 +274,7 @@
       padding: 6px 8px;
       border-radius: 10px;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
+      background: rgba(0,0,0,.14);
     }
   </style>
 </head>
@@ -247,217 +282,350 @@
 <body>
   <div class="wrap">
 
+    <!-- Sticky headline buttons -->
     <div class="topbar">
-      <div class="badge">
+      <div class="brand">
         <span class="dot"></span>
         <span>Pratik Pal</span>
-        <span class="small">Portfolio</span>
+        <span style="color:rgba(255,255,255,.75); font-size:13px;">Portfolio</span>
       </div>
-      <div class="links">
-        <a class="pill" href="mailto:pratikpal27@gmail.com"><span class="icon"></span>Email</a>
-        <a class="pill" href="https://github.com/pratikpal870" target="_blank" rel="noopener"><span class="icon"></span>GitHub</a>
-        <!-- Replace with your real LinkedIn URL -->
-        <a class="pill" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="icon"></span>LinkedIn</a>
+
+      <div class="nav">
+        <a href="#cvs">CVs</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a class="cta" href="mailto:pratikpal27@gmail.com">Contact</a>
       </div>
     </div>
 
+    <!-- Hero -->
     <header class="hero">
       <div class="heroInner">
         <div>
-          <h1>IT Operations • Technical Support • IT Service Management</h1>
-          <p class="role">
-            Master’s in ICT (Tampere University). Experience in production-critical environments (Nokia, UPM, AGCO).
-            Strong in incident handling, documentation, stakeholder communication, and platform reliability.
+          <h1>IT Operations • Technical Support • ITSM / Program Coordination</h1>
+          <p class="subtitle">
+            Master’s in ICT (Tampere University). Experience supporting production-critical environments and enterprise platforms
+            (Nokia, UPM, AGCO). Strong in incident handling, stakeholder communication, documentation, and reliability improvement.
           </p>
 
-          <div class="twoCV">
-            <div class="cvbox">
-              <h3>CV Version One — IT Specialist / Continuity / Program</h3>
-              <p>Best for ITSM, service delivery, governance, continuity planning, customer success.</p>
-              <div class="btnrow">
-                <!-- Rename your PDF to match or change the link -->
-                <a class="miniBtn" href="PratikPal_CV_ITSpecialist.pdf" target="_blank" rel="noopener">Download</a>
-                <a class="miniBtn" href="PratikPal_CV_ITSpecialist.pdf" target="_blank" rel="noopener">Open</a>
-              </div>
-            </div>
-            <div class="cvbox">
-              <h3>CV Version Two — IT Operations / Technical Support</h3>
-              <p>Best for operations, onsite/endpoint, platform support, incident response, troubleshooting.</p>
-              <div class="btnrow">
-                <!-- Rename your PDF to match or change the link -->
-                <a class="miniBtn" href="PratikPal_CV_ITOperations.pdf" target="_blank" rel="noopener">Download</a>
-                <a class="miniBtn" href="PratikPal_CV_ITOperations.pdf" target="_blank" rel="noopener">Open</a>
-              </div>
-            </div>
+          <div class="quick">
+            <span class="chip p">Incident & Change (ITIL)</span>
+            <span class="chip c">ServiceNow • Jira • Confluence</span>
+            <span class="chip g">RCA • Reporting • Documentation</span>
+            <span class="chip y">Production-Critical Operations</span>
           </div>
         </div>
 
-        <div class="metaBox">
-          <div class="metaRow">
-            <div class="metaKey">Location</div>
-            <div class="metaVal">Tampere, Finland</div>
-          </div>
-          <div class="metaRow">
-            <div class="metaKey">Email</div>
-            <div class="metaVal">pratikpal27@gmail.com</div>
-          </div>
-          <div class="metaRow">
-            <div class="metaKey">Phone</div>
-            <div class="metaVal">0417581805</div>
-          </div>
-          <div class="metaRow">
-            <div class="metaKey">Languages</div>
-            <div class="metaVal">English (Fluent) • Finnish (Basic) • German (Intermediate)</div>
-          </div>
-          <div class="metaRow">
-            <div class="metaKey">Core Tools</div>
-            <div class="metaVal">ServiceNow • Jira • Confluence</div>
-          </div>
+        <div class="meta">
+          <div class="metaRow"><div class="k">Location</div><div class="v">Tampere, Finland</div></div>
+          <div class="metaRow"><div class="k">Email</div><div class="v">pratikpal27@gmail.com</div></div>
+          <div class="metaRow"><div class="k">Phone</div><div class="v mono">0417581805</div></div>
+          <div class="metaRow"><div class="k">Languages</div><div class="v">English (Fluent) • Finnish (Professional) • German (Limited)</div></div>
         </div>
       </div>
 
-      <div class="ctaRow">
-        <a class="btn primary" href="mailto:pratikpal27@gmail.com"><span class="bicon"></span>Contact Me</a>
-        <a class="btn green" href="#experience"><span class="bicon"></span>View Experience</a>
-        <a class="btn" href="#projects"><span class="bicon"></span>Projects</a>
-        <a class="btn" href="#skills"><span class="bicon"></span>Skills</a>
+      <div class="btnRow">
+        <a class="btn primary" href="#cvs"><span class="sq"></span>Open CVs</a>
+        <a class="btn green" href="#experience"><span class="sq"></span>Open Experience</a>
+        <a class="btn" href="#skills"><span class="sq"></span>Open Skills</a>
+        <a class="btn" href="#projects"><span class="sq"></span>Open Projects</a>
       </div>
     </header>
 
-    <div class="grid">
-      <section class="card">
-        <h2>About <span class="tag">Quick snapshot</span></h2>
-        <p class="muted">
-          I support business-critical systems with a calm, structured approach: triage, investigate, communicate, document, improve.
-          I enjoy roles that combine technical depth with ownership, stakeholder coordination, and continuous improvement.
-        </p>
-        <div class="chips">
-          <span class="chip acc1">Incident & Change (ITIL)</span>
-          <span class="chip acc3">Root Cause Analysis</span>
-          <span class="chip acc2">Service Delivery</span>
-          <span class="chip warn">Production-Critical Environments</span>
-        </div>
-      </section>
+    <!-- CVs -->
+    <section class="section card" id="cvs">
+      <h2>CV Downloads <span class="tag">Two tailored versions</span></h2>
+      <p class="muted">
+        Use the version that best matches the job you apply for. Upload both PDF files into this repo root to make buttons work.
+      </p>
 
-      <section class="card">
-        <h2>What I’m best at <span class="tag">Value</span></h2>
-        <ul class="tbullets">
-          <li>Driving incidents to resolution with clear stakeholder updates.</li>
-          <li>Improving reliability through post-incident analysis and documentation.</li>
-          <li>Coordinating across teams, vendors, and time zones.</li>
-          <li>Keeping tools and processes clean: tickets, KB, workflows, handovers.</li>
-        </ul>
-      </section>
-    </div>
-
-    <section class="card" id="experience" style="margin-top:14px;">
-      <h2>Experience <span class="tag">Highlights</span></h2>
-
-      <div class="timeline">
-        <div class="titem">
-          <div class="top">
-            <div>
-              <div class="trole">NMP Technical Support Specialist</div>
-              <div class="torg">Nokia — Espoo, Finland</div>
-            </div>
-            <div class="tdate">Jul 2023 – Jul 2024</div>
+      <div class="twoCV">
+        <div class="cvbox">
+          <h3>CV Version One — IT Specialist / Business Continuity / Program Coordination</h3>
+          <p>Best for ITSM, service governance, continuity planning, stakeholder management, SaaS delivery.</p>
+          <div class="cvbtns">
+            <!-- IMPORTANT: Rename your PDF to match this filename OR change the link -->
+            <a class="mini" href="PratikPal_CV_ITSpecialist.pdf" target="_blank" rel="noopener">Download</a>
+            <a class="mini" href="PratikPal_CV_ITSpecialist.pdf" target="_blank" rel="noopener">Open</a>
           </div>
-          <ul class="tbullets">
-            <li>Owned customer-facing platform support: onboarding, access administration, troubleshooting, and documentation.</li>
-            <li>Investigated incidents using logs/monitoring; collaborated with engineering to reduce repeat issues.</li>
-            <li>Supported service continuity planning and process improvements for better team efficiency.</li>
-          </ul>
         </div>
 
-        <div class="titem">
-          <div class="top">
-            <div>
-              <div class="trole">Major Incident & Operations Specialist</div>
-              <div class="torg">UPM — Tampere, Finland</div>
-            </div>
-            <div class="tdate">Multiple tenures</div>
+        <div class="cvbox">
+          <h3>CV Version Two — IT Operations & Technical Support</h3>
+          <p>Best for operations, infrastructure support, incident recovery, factory/production environments.</p>
+          <div class="cvbtns">
+            <!-- IMPORTANT: Rename your PDF to match this filename OR change the link -->
+            <a class="mini" href="PratikPal_CV_ITOperations.pdf" target="_blank" rel="noopener">Download</a>
+            <a class="mini" href="PratikPal_CV_ITOperations.pdf" target="_blank" rel="noopener">Open</a>
           </div>
-          <ul class="tbullets">
-            <li>Led war-room style coordination during major outages impacting operations and logistics.</li>
-            <li>Ensured clear communication, action tracking, and post-incident improvements.</li>
-          </ul>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div>
-              <div class="trole">Factory IT Support Engineer</div>
-              <div class="torg">AGCO (via partners) — Tampere, Finland</div>
-            </div>
-            <div class="tdate">Nov 2025</div>
-          </div>
-          <ul class="tbullets">
-            <li>Supported industrial endpoints and network-connected devices in manufacturing environments.</li>
-            <li>Installed/configured devices, worked with vendors and engineers, ensured uptime for production teams.</li>
-          </ul>
         </div>
       </div>
+
+      <details>
+        <summary>How to make the CV buttons work <span class="arrow"></span></summary>
+        <div class="inside">
+          <ol>
+            <li>Upload your two PDF CV files into this repository (same folder as index.html).</li>
+            <li>Name them exactly:
+              <span class="kbd">PratikPal_CV_ITSpecialist.pdf</span> and <span class="kbd">PratikPal_CV_ITOperations.pdf</span>
+            </li>
+            <li>If your filenames are different, edit the links above and replace the filenames.</li>
+          </ol>
+        </div>
+      </details>
     </section>
 
-    <div class="grid">
-      <section class="card" id="projects">
-        <h2>Projects <span class="tag">Selected</span></h2>
-        <div class="timeline">
-          <div class="titem">
-            <div class="top">
-              <div>
-                <div class="trole">IoT Security — Homomorphic Encryption (MSc research area)</div>
-                <div class="torg">Tampere University</div>
-              </div>
-              <div class="tdate">Research</div>
-            </div>
-            <ul class="tbullets">
-              <li>Studied security vs performance trade-offs for IoT data processing.</li>
-              <li>Built a strong foundation in secure system design and constrained environments.</li>
-            </ul>
-          </div>
+    <!-- Experience -->
+    <section class="section card" id="experience">
+      <h2>Experience <span class="tag">Click headlines to open details</span></h2>
 
-          <div class="titem">
-            <div class="top">
-              <div>
-                <div class="trole">Smart Home Automation (IoT)</div>
-                <div class="torg">Academic project</div>
-              </div>
-              <div class="tdate">IoT</div>
-            </div>
-            <ul class="tbullets">
-              <li>Designed an IoT home automation prototype; integrated sensors/devices with control logic.</li>
-              <li>Focused on system integration, troubleshooting, and documentation.</li>
-            </ul>
+      <details open>
+        <summary>Nokia — NMP Technical Support Specialist (Espoo, Finland) • Jul 2023 – Jun 2024 <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Supported Nokia’s Network Monetization Platform as part of a global deployment, ensuring seamless technical delivery across customer projects.</li>
+            <li>Led incident coordination, license provisioning, onboarding sessions, and communication between R&amp;D, product, and customer success teams.</li>
+            <li>Developed and maintained ServiceNow and Jira-based reporting and workflow systems for efficient program tracking.</li>
+            <li>Contributed to Business Continuity Planning and operational risk mitigation for global demo environments during major industry events.</li>
+            <li>Conducted root cause analysis for performance and availability issues; produced stakeholder reports aligned to milestones.</li>
+            <li>In the IT Ops-focused version: analyzed performance metrics, logs, latency/throughput; investigated API bottlenecks and stability issues; performed stress/soak analysis during incidents; validated fixes with developers.</li>
+          </ul>
+          <div class="pillRow">
+            <span class="pill">ServiceNow</span><span class="pill">Jira</span><span class="pill">RCA</span><span class="pill">BCP</span><span class="pill">Customer Onboarding</span><span class="pill">Documentation</span>
           </div>
         </div>
-      </section>
+      </details>
 
-      <section class="card" id="skills">
-        <h2>Skills & Tools <span class="tag">Snapshot</span></h2>
-        <div class="chips">
-          <span class="chip acc1">ServiceNow</span>
-          <span class="chip acc1">Jira / JSM</span>
-          <span class="chip acc1">Confluence</span>
-          <span class="chip acc3">Linux</span>
-          <span class="chip acc3">TCP/IP</span>
-          <span class="chip acc3">Monitoring & Logs</span>
-          <span class="chip acc2">Documentation</span>
-          <span class="chip acc2">Stakeholder Communication</span>
-          <span class="chip warn">On-call / Shift Environments</span>
+      <details>
+        <summary>UPM — Major Incident & Operations Specialist (Tampere, Finland) • Multiple tenures <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Managed critical IT incidents impacting production and hybrid environments, ensuring minimal downtime.</li>
+            <li>Liaised between business owners, IT teams, and vendors, aligning technical actions with SLA compliance.</li>
+            <li>Led war-room calls during major outages affecting manufacturing/logistics; ensured business continuity and recovery.</li>
+            <li>Performed root cause analysis on performance and stability incidents; maintained incident metrics and reliability reports for service improvement.</li>
+            <li>Participated in service recovery, failover and DR validation in availability-focused environments.</li>
+          </ul>
+          <div class="pillRow">
+            <span class="pill">Major Incident</span><span class="pill">SLA</span><span class="pill">Post-Incident Reviews</span><span class="pill">Reliability Reporting</span>
+          </div>
         </div>
+      </details>
 
-        <div style="margin-top:12px; color: rgba(238,242,255,.78); font-size:13px;">
-          Tip: Keep two CV versions so recruiters can pick the best match quickly.
+      <details>
+        <summary>AGCO (via Teceze / Infosys) — Factory IT Support Engineer (Tampere, Finland) • Nov 2025 <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Worked directly in manufacturing and production-floor environments supporting terminals, controllers, tablets, and electronic equipment.</li>
+            <li>Installed, configured, and replaced industrial PCs, workstations, network switches, printers, and peripherals.</li>
+            <li>Performed physical cabling, patching, and device connectivity inside factory production areas.</li>
+            <li>Supported shop-floor systems and network-connected machines; resolved hardware failures and connectivity issues impacting production.</li>
+            <li>Managed device lifecycle, asset tracking, and inventory; coordinated vendor/engineer interventions in uptime-critical operations.</li>
+          </ul>
+          <div class="pillRow">
+            <span class="pill">Industrial IT</span><span class="pill">Hardware</span><span class="pill">Cabling</span><span class="pill">Asset Tracking</span><span class="pill">Vendor Coordination</span>
+          </div>
         </div>
-      </section>
-    </div>
+      </details>
+
+      <details>
+        <summary>Ubique Solutions — Support Engineer (Kolkata, India) • Mar 2020 – May 2021 <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Delivered L one / L two support for enterprise networks and SaaS environments; performed diagnostics using Cisco tools.</li>
+            <li>Participated in onboarding/training initiatives; supported incident tracking, configuration, and service optimization.</li>
+          </ul>
+          <div class="pillRow">
+            <span class="pill">L1/L2 Support</span><span class="pill">Cisco Tools</span><span class="pill">SaaS Support</span>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Skills -->
+    <section class="section card" id="skills">
+      <h2>Skills <span class="tag">All skills from both CVs</span></h2>
+
+      <details open>
+        <summary>Core (Operations, ITSM, Delivery) <span class="arrow"></span></summary>
+        <div class="inside">
+          <div class="pillRow">
+            <span class="pill">Incident & Change Management (ITIL)</span>
+            <span class="pill">Root Cause Analysis</span>
+            <span class="pill">Post-Incident Reviews</span>
+            <span class="pill">Service Impact Reports</span>
+            <span class="pill">Risk & Issue Tracking</span>
+            <span class="pill">Business Continuity Planning</span>
+            <span class="pill">Stakeholder Communication</span>
+            <span class="pill">User Training & Onboarding</span>
+            <span class="pill">Knowledge Base & Documentation</span>
+            <span class="pill">Cross-Team & Vendor Coordination</span>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Tools (Service / Project / Data) <span class="arrow"></span></summary>
+        <div class="inside">
+          <div class="pillRow">
+            <span class="pill">ServiceNow</span>
+            <span class="pill">Jira</span>
+            <span class="pill">Jira Service Management</span>
+            <span class="pill">Confluence</span>
+            <span class="pill">Microsoft 365 (Excel, PowerPoint, Outlook)</span>
+            <span class="pill">MS Office Suite</span>
+            <span class="pill">Power BI</span>
+            <span class="pill">Salesforce</span>
+            <span class="pill">Zendesk</span>
+            <span class="pill">ERP Systems</span>
+            <span class="pill">SAP</span>
+            <span class="pill">Inventory Management Systems</span>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Platforms & Technical (Infra, IAM, Cloud, Networking) <span class="arrow"></span></summary>
+        <div class="inside">
+          <div class="pillRow">
+            <span class="pill">Active Directory</span>
+            <span class="pill">Microsoft Entra ID (Azure AD)</span>
+            <span class="pill">Microsoft Intune</span>
+            <span class="pill">Azure (Security, Identity, Monitoring) — basic</span>
+            <span class="pill">AWS — basic</span>
+            <span class="pill">Windows</span>
+            <span class="pill">Linux</span>
+            <span class="pill">TCP/IP</span>
+            <span class="pill">VLANs (fundamentals)</span>
+            <span class="pill">Cabling / Patching</span>
+            <span class="pill">VPNs (fundamentals)</span>
+            <span class="pill">API Log Review</span>
+            <span class="pill">RDBMS & SQL — basics</span>
+          </div>
+          <p class="muted2" style="margin-top:10px;">
+            Also included: preventive maintenance, system reliability, monitoring-based test analysis, performance/load testing (incident-driven), platform performance validation.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Additional (Workplace IT / AV) <span class="arrow"></span></summary>
+        <div class="inside">
+          <div class="pillRow">
+            <span class="pill">AV Systems</span>
+            <span class="pill">Video Conferencing Solutions</span>
+            <span class="pill">Smart Device Integration</span>
+            <span class="pill">Information Screen Systems</span>
+            <span class="pill">Office IT Moves</span>
+            <span class="pill">Procurement Support</span>
+            <span class="pill">IT Infrastructure Setup</span>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Projects -->
+    <section class="section card" id="projects">
+      <h2>Projects <span class="tag">Selected</span></h2>
+
+      <details open>
+        <summary>Network Monetization Platform (NMP) — Technical Support & API Operations <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Supported Nokia’s enterprise platform used by global telecom customers.</li>
+            <li>Investigated incidents related to API integrations, authentication, data flows, and service availability.</li>
+            <li>Worked with logs and monitoring tools; collaborated with developers/service owners to improve reliability and documentation.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Master’s Project — Homomorphic Encryption for IoT Security <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Literature review on homomorphic encryption for secure IoT data processing.</li>
+            <li>Analyzed security vs performance trade-offs in constrained environments; strengthened secure system design understanding.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Smart Home Automation System (IoT) <span class="arrow"></span></summary>
+        <div class="inside">
+          <ul>
+            <li>Designed IoT-based home automation for appliance control.</li>
+            <li>Integrated sensors, microcontrollers, and remote control logic; gained hands-on system integration and troubleshooting experience.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- Education -->
+    <section class="section card" id="education">
+      <h2>Education <span class="tag">Academic background</span></h2>
+
+      <details open>
+        <summary>Master of Science — Tampere University (Sep 2021 – Jun 2024) <span class="arrow"></span></summary>
+        <div class="inside">
+          <p class="muted2" style="margin:0 0 10px;">Thesis: Homomorphic Encryption in IoT</p>
+          <div class="pillRow">
+            <span class="pill">Computer Networks & Internet Protocols</span>
+            <span class="pill">Cloud Computing & Virtualization</span>
+            <span class="pill">Linux Systems</span>
+            <span class="pill">Distributed Systems</span>
+            <span class="pill">Network Security Fundamentals</span>
+            <span class="pill">Telecommunications Engineering</span>
+            <span class="pill">Wireless / 5G</span>
+            <span class="pill">Test Automation</span>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Master of Computer Applications — MAKAUT (Jul 2016 – Jul 2019) <span class="arrow"></span></summary>
+        <div class="inside">
+          <p class="muted2" style="margin:0 0 10px;">Thesis: Home automation with IoT</p>
+          <div class="pillRow">
+            <span class="pill">Computer Networks</span>
+            <span class="pill">Operating Systems</span>
+            <span class="pill">Distributed Systems</span>
+            <span class="pill">Cloud Computing</span>
+            <span class="pill">Artificial Intelligence</span>
+            <span class="pill">Python (scripting basics)</span>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Bachelor of Computer Applications — MAKAUT (May 2013 – May 2016) <span class="arrow"></span></summary>
+        <div class="inside">
+          <div class="pillRow">
+            <span class="pill">C Programming</span>
+            <span class="pill">Digital Electronics</span>
+            <span class="pill">Information Systems Analysis & Design</span>
+            <span class="pill">Software Project Management</span>
+            <span class="pill">Quality Assurance</span>
+            <span class="pill">Computer Networks</span>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section card" id="certificates">
+      <h2>Certificates <span class="tag">Selected</span></h2>
+      <ul>
+        <li>Cisco Certified Network Associate (CCNA) (May 2018 – Oct 2018)</li>
+        <li>British Council — Upper Intermediate (May 2013 – Jun 2013)</li>
+      </ul>
+    </section>
 
     <footer>
       <div>© <span id="year"></span> Pratik Pal</div>
       <div class="kbd">Last updated: <span id="lastUpdated"></span></div>
     </footer>
-
   </div>
 
   <script>
